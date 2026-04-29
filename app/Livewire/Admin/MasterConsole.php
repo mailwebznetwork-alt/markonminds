@@ -1,0 +1,135 @@
+<?php
+
+namespace App\Livewire\Admin;
+
+use Livewire\Component;
+
+class MasterConsole extends Component
+{
+    public array $categories = [
+        'dashboard' => [
+            'label' => 'Dashboard',
+            'icon' => 'chart',
+            'tabs' => [
+                ['slug' => 'performance-metrics', 'label' => 'Performance Metrics', 'component' => 'admin.workspaces.performance-metrics'],
+                ['slug' => 'system-status', 'label' => 'System Status', 'component' => 'admin.workspaces.system-status'],
+            ],
+        ],
+        'operations' => [
+            'label' => 'Operations',
+            'icon' => 'gear',
+            'tabs' => [
+                ['slug' => 'bookings', 'label' => 'Bookings', 'component' => 'admin.workspaces.bookings'],
+                ['slug' => 'job-portal', 'label' => 'Job Portal', 'component' => 'admin.workspaces.job-portal'],
+                ['slug' => 'services', 'label' => 'Services', 'component' => 'admin.workspaces.services'],
+                ['slug' => 'locations', 'label' => 'Locations', 'component' => 'admin.workspaces.locations'],
+            ],
+        ],
+        'site-architect' => [
+            'label' => 'Site Architect',
+            'icon' => 'build',
+            'tabs' => [
+                ['slug' => 'page-style', 'label' => 'Page Style', 'component' => 'admin.workspaces.page-style'],
+                ['slug' => 'page-builder', 'label' => 'Page Builder', 'component' => 'admin.workspaces.page-builder'],
+                ['slug' => 'block-builder', 'label' => 'Block Builder', 'component' => 'admin.workspaces.block-builder'],
+                ['slug' => 'content-writing', 'label' => 'Content Writing', 'component' => 'admin.workspaces.content-writing'],
+            ],
+        ],
+        'marketing' => [
+            'label' => 'Marketing',
+            'icon' => 'rocket',
+            'tabs' => [
+                ['slug' => 'marketing-strategy', 'label' => 'Marketing Strategy', 'component' => 'admin.workspaces.marketing-strategy'],
+                ['slug' => 'ad-clusters', 'label' => 'Ad Clusters', 'component' => 'admin.workspaces.ad-clusters'],
+            ],
+        ],
+        'integrity' => [
+            'label' => 'Integrity',
+            'icon' => 'shield',
+            'tabs' => [
+                ['slug' => 'reviews-ratings', 'label' => 'Reviews & Ratings', 'component' => 'admin.workspaces.reviews-ratings'],
+                ['slug' => 'privacy-eeat', 'label' => 'Privacy/EEAT', 'component' => 'admin.workspaces.privacy-eeat'],
+            ],
+        ],
+        'integrations' => [
+            'label' => 'Integrations',
+            'icon' => 'plug',
+            'tabs' => [
+                ['slug' => 'api-keys', 'label' => 'API Keys', 'component' => 'admin.workspaces.api-keys'],
+                ['slug' => 'webhooks', 'label' => 'Webhooks', 'component' => 'admin.workspaces.webhooks'],
+                ['slug' => 'third-party-setup', 'label' => 'Third-party Setup', 'component' => 'admin.workspaces.third-party-setup'],
+            ],
+        ],
+        'growth-center' => [
+            'label' => 'Growth Centre',
+            'icon' => 'growth',
+            'tabs' => [
+                ['slug' => 'seo', 'label' => 'SEO', 'component' => 'admin.workspaces.seo'],
+                ['slug' => 'local-seo', 'label' => 'Local SEO', 'component' => 'admin.workspaces.local-seo'],
+                ['slug' => 'gtm', 'label' => 'GTM', 'component' => 'admin.workspaces.gtm'],
+                ['slug' => 'node-scaling', 'label' => 'Node Scaling', 'component' => 'admin.workspaces.node-scaling'],
+            ],
+        ],
+        'user-management' => [
+            'label' => 'User Management',
+            'icon' => 'users',
+            'tabs' => [
+                ['slug' => 'roles', 'label' => 'Roles', 'component' => 'admin.workspaces.roles'],
+                ['slug' => 'audit-logs', 'label' => 'Audit Logs', 'component' => 'admin.workspaces.audit-logs'],
+            ],
+        ],
+    ];
+
+    public string $activeCategory = 'dashboard';
+
+    public string $activeTab = 'performance-metrics';
+
+    public function mount(): void
+    {
+        $firstTab = $this->categories[$this->activeCategory]['tabs'][0]['slug'];
+        $this->activeTab = $firstTab;
+    }
+
+    public function selectCategory(string $category): void
+    {
+        if (! isset($this->categories[$category])) {
+            return;
+        }
+
+        $this->activeCategory = $category;
+        $this->activeTab = $this->categories[$category]['tabs'][0]['slug'];
+    }
+
+    public function selectTab(string $tab): void
+    {
+        foreach ($this->activeTabs as $activeTab) {
+            if ($activeTab['slug'] === $tab) {
+                $this->activeTab = $tab;
+
+                return;
+            }
+        }
+    }
+
+    public function getActiveTabsProperty(): array
+    {
+        return $this->categories[$this->activeCategory]['tabs'];
+    }
+
+    public function getActiveTabConfigProperty(): array
+    {
+        foreach ($this->activeTabs as $tab) {
+            if ($tab['slug'] === $this->activeTab) {
+                return $tab;
+            }
+        }
+
+        return $this->activeTabs[0];
+    }
+
+    public function render()
+    {
+        return view('livewire.admin.master-console')
+            ->layout('components.layouts.console');
+    }
+}

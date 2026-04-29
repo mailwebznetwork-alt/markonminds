@@ -19,7 +19,7 @@ it('shows authenticated user name on admin workspace header', function () {
         'email' => 'mail.webznetwork@gmail.com',
     ]);
 
-    $response = $this->actingAs($user)->get('/admin/performance-metrics');
+    $response = $this->actingAs($user)->get('/admin');
 
     $response->assertOk();
     $response->assertSee('MarkOnMinds');
