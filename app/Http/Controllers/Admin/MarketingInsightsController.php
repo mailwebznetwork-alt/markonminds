@@ -17,7 +17,6 @@ class MarketingInsightsController extends Controller
 
         return view('admin.marketing-insights.index', [
             'hasGeminiApiKey' => filled($geminiApiKey),
-            'insights' => $this->insights(),
         ]);
     }
 
@@ -86,12 +85,12 @@ class MarketingInsightsController extends Controller
     private function buildPrompt(string $businessGoal): string
     {
         return <<<PROMPT
-You are a premium brand marketing strategist for Medca Health Care in Bangalore, focused on a 25km radius around Arekere.
+You are a senior marketing strategist for premium brands.
 
 Business goal:
 {$businessGoal}
 
-Generate a high-level strategy tailored for premium healthcare branding.
+Generate a high-level strategy tailored for premium brand positioning.
 Use exactly these sections with concise bullets:
 1) Positioning Narrative
 2) Campaign Pillars (3 pillars)
@@ -126,26 +125,5 @@ PROMPT;
             ->values();
 
         return $texts->isNotEmpty() ? $texts->implode("\n\n") : null;
-    }
-
-    /**
-     * @return array<int, array{title: string, detail: string}>
-     */
-    private function insights(): array
-    {
-        return [
-            [
-                'title' => 'Arekere Priority Lead Window',
-                'detail' => 'Identify high-intent leads within a 25km radius for premium health packages.',
-            ],
-            [
-                'title' => 'Authority Campaign Positioning',
-                'detail' => 'Emphasize specialist-led care, rapid appointments, and concierge follow-ups.',
-            ],
-            [
-                'title' => 'Retention Opportunity',
-                'detail' => 'Recommend post-consultation preventive checkup reminders at 30 and 90 days.',
-            ],
-        ];
     }
 }

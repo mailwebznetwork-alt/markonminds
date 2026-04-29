@@ -20,33 +20,20 @@
             <aside class="w-72 border-r border-[#D4AF37]/35 bg-gradient-to-b from-[#161616] to-[#101010] backdrop-blur-xl">
                 <div class="flex h-20 items-center border-b border-[#D4AF37]/35 px-6">
                     <div>
-                        <p class="text-xs uppercase tracking-[0.2em] text-[#D4AF37]/80">MarkOnMinds</p>
-                        <h1 class="font-display text-xl font-semibold text-[#f8f4e7]">Admin Authority</h1>
+                        <p class="text-xs uppercase tracking-[0.2em] text-[#D4AF37]/80">Admin</p>
+                        <h1 class="font-display text-xl font-semibold text-[#f8f4e7]">Control Panel</h1>
                     </div>
                 </div>
 
                 <div class="h-[calc(100vh-80px)] overflow-y-auto custom-scrollbar">
-                    <nav class="space-y-2 px-3 py-4">
-                        <a
-                            href="{{ route('admin.dashboard') }}"
-                            class="block rounded-xl border px-4 py-3 text-sm font-medium transition {{ request()->routeIs('admin.dashboard') ? 'border-[#D4AF37] bg-[#1c1c1c] text-[#f8f4e7] shadow-[0_0_28px_rgba(212,175,55,0.16)]' : 'border-[#D4AF37]/25 bg-[#181818] text-[#e7dfc7] hover:border-[#D4AF37]/75 hover:bg-[#1f1f1f]' }}"
-                        >
-                            Overview
-                        </a>
-                        <a
-                            href="{{ route('admin.marketing-insights.index') }}"
-                            class="block rounded-xl border px-4 py-3 text-sm font-medium transition {{ request()->routeIs('admin.marketing-insights.*') ? 'border-[#D4AF37] bg-[#1c1c1c] text-[#f8f4e7] shadow-[0_0_28px_rgba(212,175,55,0.16)]' : 'border-[#D4AF37]/25 bg-[#181818] text-[#e7dfc7] hover:border-[#D4AF37]/75 hover:bg-[#1f1f1f]' }}"
-                        >
-                            Marketing Insights
-                        </a>
-                    </nav>
+                    <nav class="space-y-2 px-3 py-4"></nav>
                 </div>
             </aside>
 
             <div class="flex-1">
                 <header class="flex h-20 items-center justify-between border-b border-[#D4AF37]/30 bg-[#121212]/95 px-8">
                     <div>
-                        <p class="text-xs uppercase tracking-[0.2em] text-[#D4AF37]/75">Premium Healthcare Operations</p>
+                        <p class="text-xs uppercase tracking-[0.2em] text-[#D4AF37]/75">Workspace</p>
                         <h2 class="font-display text-2xl font-semibold text-[#f8f4e7]">@yield('header', 'Dashboard')</h2>
                     </div>
                 </header>
