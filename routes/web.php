@@ -11,4 +11,5 @@ Route::get('/', function () {
 Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('/', [AdminDashboardController::class, 'index'])->name('dashboard');
     Route::get('/marketing-insights', [MarketingInsightsController::class, 'index'])->name('marketing-insights.index');
+    Route::post('/marketing-insights', [MarketingInsightsController::class, 'generate'])->name('marketing-insights.generate');
 });
