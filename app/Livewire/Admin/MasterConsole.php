@@ -39,8 +39,7 @@ class MasterConsole extends Component
             'label' => 'Marketing',
             'icon' => 'rocket',
             'tabs' => [
-                ['slug' => 'marketing-strategy', 'label' => 'Marketing Strategy', 'component' => 'admin.workspaces.marketing-strategy'],
-                ['slug' => 'ad-clusters', 'label' => 'Ad Clusters', 'component' => 'admin.workspaces.ad-clusters'],
+                ['slug' => 'growth-matrix', 'label' => 'Growth Matrix Dashboard', 'component' => 'admin.workspaces.growth-matrix-dashboard'],
             ],
         ],
         'integrity' => [

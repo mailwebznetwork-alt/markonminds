@@ -91,20 +91,22 @@
 
         <main class="p-4 sm:p-6 lg:p-8">
             <section class="rounded-xl border border-[#d4af37]/30 bg-[#0f1728] p-3 sm:p-4">
-                <div class="flex flex-wrap gap-2 border-b border-[#d4af37]/20 pb-3">
-                    @foreach ($this->activeTabs as $tab)
-                        <button
-                            type="button"
-                            wire:click="selectTab('{{ $tab['slug'] }}')"
-                            wire:key="tab-{{ $tab['slug'] }}"
-                            class="rounded-md border px-4 py-2 text-[13px] font-medium transition-all duration-150 {{ $activeTab === $tab['slug'] ? 'border-[#d4af37] bg-[#3b2a11] text-[#fff3d8] shadow-[0_0_0_1px_rgba(212,175,55,0.4)]' : 'border-[#d4af37]/25 bg-[#121a2d] text-[#d7c7a1] hover:border-[#d4af37]/55 hover:text-[#f5e7c4]' }}"
-                        >
-                            {{ $tab['label'] }}
-                        </button>
-                    @endforeach
-                </div>
+                @if (count($this->activeTabs) > 1)
+                    <div class="flex flex-wrap gap-2 border-b border-[#d4af37]/20 pb-3">
+                        @foreach ($this->activeTabs as $tab)
+                            <button
+                                type="button"
+                                wire:click="selectTab('{{ $tab['slug'] }}')"
+                                wire:key="tab-{{ $tab['slug'] }}"
+                                class="rounded-md border px-4 py-2 text-[13px] font-medium transition-all duration-150 {{ $activeTab === $tab['slug'] ? 'border-[#d4af37] bg-[#3b2a11] text-[#fff3d8] shadow-[0_0_0_1px_rgba(212,175,55,0.4)]' : 'border-[#d4af37]/25 bg-[#121a2d] text-[#d7c7a1] hover:border-[#d4af37]/55 hover:text-[#f5e7c4]' }}"
+                            >
+                                {{ $tab['label'] }}
+                            </button>
+                        @endforeach
+                    </div>
+                @endif
 
-                <div wire:loading.class="opacity-75" wire:target="selectTab" class="mt-4 min-h-[60vh] rounded-lg border border-[#d4af37]/20 bg-[#0a1020] p-4 transition-opacity duration-150">
+                <div wire:loading.class="opacity-75" wire:target="selectTab" class="{{ count($this->activeTabs) > 1 ? 'mt-4' : '' }} min-h-[60vh] rounded-lg border border-[#d4af37]/20 bg-[#0a1020] p-4 transition-opacity duration-150">
                     <h2 class="mb-3 text-lg font-semibold text-[#f5e7c4]">{{ $this->activeTabConfig['label'] }}</h2>
                     @livewire($this->activeTabConfig['component'], [], key($this->activeTabConfig['component'].'-'.$activeTab))
                 </div>
