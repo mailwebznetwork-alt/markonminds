@@ -63,6 +63,7 @@ class MasterConsole extends Component
             'label' => 'Growth Centre',
             'icon' => 'growth',
             'tabs' => [
+                ['slug' => 'ai-pulse', 'label' => 'AI Pulse', 'component' => 'admin.workspaces.ai-pulse'],
                 ['slug' => 'aio', 'label' => 'AIO', 'component' => 'admin.workspaces.aio'],
                 ['slug' => 'seo', 'label' => 'SEO', 'component' => 'admin.workspaces.seo'],
                 ['slug' => 'geo', 'label' => 'GEO', 'component' => 'admin.workspaces.geo'],
