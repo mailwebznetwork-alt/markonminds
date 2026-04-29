@@ -29,10 +29,10 @@ class MasterConsole extends Component
             'label' => 'Site Architect',
             'icon' => 'build',
             'tabs' => [
-                ['slug' => 'page-style', 'label' => 'Page Style', 'component' => 'admin.workspaces.page-style'],
-                ['slug' => 'page-builder', 'label' => 'Page Builder', 'component' => 'admin.workspaces.page-builder'],
-                ['slug' => 'block-builder', 'label' => 'Block Builder', 'component' => 'admin.workspaces.block-builder'],
-                ['slug' => 'content-writing', 'label' => 'Content Writing', 'component' => 'admin.workspaces.content-writing'],
+                ['slug' => 'pages', 'label' => 'Pages', 'component' => 'admin.workspaces.architect-pages'],
+                ['slug' => 'blocks', 'label' => 'Blocks', 'component' => 'admin.workspaces.architect-blocks'],
+                ['slug' => 'blogs', 'label' => 'Blogs', 'component' => 'admin.workspaces.architect-blogs'],
+                ['slug' => 'layout', 'label' => 'Layout', 'component' => 'admin.workspaces.architect-layouts'],
             ],
         ],
         'marketing' => [
