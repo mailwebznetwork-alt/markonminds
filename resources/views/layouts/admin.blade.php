@@ -20,8 +20,8 @@
             <aside class="w-72 border-r border-[#D4AF37]/35 bg-gradient-to-b from-[#161616] to-[#101010] backdrop-blur-xl">
                 <div class="flex h-20 items-center border-b border-[#D4AF37]/35 px-6">
                     <div>
-                        <p class="text-xs uppercase tracking-[0.2em] text-[#D4AF37]/80">Admin</p>
-                        <h1 class="font-display text-xl font-semibold text-[#f8f4e7]">Control Panel</h1>
+                        <p class="text-xs uppercase tracking-[0.2em] text-[#D4AF37]/80">Bike</p>
+                        <h1 class="font-display text-xl font-semibold text-[#f8f4e7]">Executive Panel</h1>
                     </div>
                 </div>
 
@@ -33,7 +33,7 @@
             <div class="flex-1">
                 <header class="flex h-20 items-center justify-between border-b border-[#D4AF37]/30 bg-[#121212]/95 px-8">
                     <div>
-                        <p class="text-xs uppercase tracking-[0.2em] text-[#D4AF37]/75">Workspace</p>
+                        <p class="text-xs uppercase tracking-[0.2em] text-[#D4AF37]/75">Project Workspace</p>
                         <h2 class="font-display text-2xl font-semibold text-[#f8f4e7]">@yield('header', 'Dashboard')</h2>
                     </div>
                 </header>

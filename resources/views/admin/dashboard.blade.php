@@ -1,10 +1,8 @@
 @extends('layouts.admin')
 
-@section('title', 'Admin Dashboard')
-@section('header', 'Dashboard')
+@section('title', 'Bike Dashboard')
+@section('header', 'Bike')
 
 @section('content')
-    <section class="rounded-2xl border border-[#D4AF37]/45 bg-[#1a1a1a] p-10">
-        <div class="min-h-[320px] rounded-xl border border-dashed border-[#D4AF37]/30 bg-[#121212]"></div>
-    </section>
+    <section class="min-h-[72vh] rounded-2xl border border-[#D4AF37]/45 bg-[#161616]"></section>
 @endsection
