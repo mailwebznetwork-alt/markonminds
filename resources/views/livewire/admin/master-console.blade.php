@@ -93,12 +93,12 @@
         </header>
 
         <main class="space-y-3 p-4 sm:p-6 lg:p-8">
-            <div class="flex items-center justify-between px-1">
-                <div>
+            <div class="flex items-center justify-between rounded-lg border border-[#2b2f36] bg-[#111214]/70 px-4 py-3 backdrop-blur-md">
+                <div class="space-y-1">
                     <p class="text-xs uppercase tracking-[0.16em] text-[#9ca3af]">{{ $categories[$activeCategory]['label'] }}</p>
-                    <h2 class="text-lg font-semibold text-[#f3f4f6]">{{ $this->activeTabConfig['label'] }}</h2>
+                    <h2 class="text-3xl font-bold leading-none text-[#f3f4f6]">{{ $this->activeTabConfig['label'] }}</h2>
                 </div>
-                <p class="text-xs text-[#9ca3af]">{{ count($this->activeTabs) }} modules</p>
+                <p class="text-sm text-[#9ca3af]">{{ count($this->activeTabs) }} modules</p>
             </div>
 
             @if (count($this->activeTabs) > 1)
