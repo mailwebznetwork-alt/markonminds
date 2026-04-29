@@ -13,13 +13,13 @@ it('redirects dashboard to admin for authenticated users', function () {
     $response->assertRedirect('/admin');
 });
 
-it('shows authenticated user name on admin header', function () {
+it('shows authenticated user name on admin workspace header', function () {
     $user = User::factory()->create([
         'name' => 'WDJERRIE',
         'email' => 'mail.webznetwork@gmail.com',
     ]);
 
-    $response = $this->actingAs($user)->get('/admin');
+    $response = $this->actingAs($user)->get('/admin/performance-metrics');
 
     $response->assertOk();
     $response->assertSee('MarkOnMinds');
