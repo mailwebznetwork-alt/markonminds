@@ -1,4 +1,4 @@
-<div x-data="{ sidebarCollapsed: false, mobileSidebarOpen: false }" class="min-h-screen bg-[#0b0b0c]">
+<div x-data="{ sidebarCollapsed: false, mobileSidebarOpen: false }" class="min-h-screen bg-gradient-to-b from-[#0a0a0a] to-[#121214]">
     <div
         x-show="mobileSidebarOpen"
         x-transition.opacity
@@ -7,20 +7,20 @@
     ></div>
 
     <aside
-        class="fixed inset-y-0 left-0 z-40 border-r border-[#2b2f36] bg-[#0b0b0c] transition-all duration-300"
+        class="fixed inset-y-0 left-0 z-40 momo-edge-v bg-gradient-to-b from-[#0a0a0a] to-[#121214] transition-all duration-300"
         :class="[
             mobileSidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0',
             sidebarCollapsed ? 'w-20' : 'w-72'
         ]"
     >
-        <div class="flex h-20 items-center justify-between border-b border-[#1a1c1f] px-4">
+        <div class="flex h-20 items-center justify-between bg-[#1e63ff] px-4">
             <div x-show="!sidebarCollapsed" class="space-y-0.5">
-                <h1 class="text-lg font-semibold tracking-wide text-[#f3f4f6]">MarkOnMinds</h1>
-                <p class="text-[10px] uppercase tracking-[0.16em] text-[#9ca3af]">Console</p>
+                <h1 class="font-extrabold leading-none tracking-tight text-white" style="font-size: 28px;">MarkOnMinds</h1>
+                <p class="text-[10px] uppercase tracking-[0.18em] text-white">Console</p>
             </div>
             <button
                 type="button"
-                class="rounded-md border border-[#2b2f36] bg-[#1a1c1f] px-2 py-1 text-xs font-semibold text-[#9ca3af]"
+                class="rounded-xl border border-white/35 bg-[#1a56df] px-3 py-2 text-xs font-semibold text-white hover:bg-[#1549c4]"
                 @click="sidebarCollapsed = !sidebarCollapsed"
             >
                 <span x-text="sidebarCollapsed ? '>>' : '<<'"></span>
@@ -28,16 +28,16 @@
         </div>
 
         <div class="h-[calc(100vh-80px)] overflow-y-auto custom-scrollbar px-3 py-4">
-            <nav class="grid divide-y divide-[#2b3340]/75 text-base">
+            <nav class="grid text-base">
                 @foreach ($categories as $categoryKey => $category)
                     <button
                         type="button"
                         wire:click="selectCategory('{{ $categoryKey }}')"
                         x-bind:title="sidebarCollapsed ? '{{ $category['label'] }}' : ''"
-                        class="flex items-center gap-3 px-3 py-3 transition-colors duration-150"
+                        class="momo-row-h flex items-center gap-3 px-3 py-3 transition-colors duration-150"
                         :class="sidebarCollapsed ? 'justify-center' : 'justify-start'"
                     >
-                        <span class="{{ $activeCategory === $categoryKey ? 'border-[#3a3d42] bg-[#2b2f36] text-[#f3f4f6]' : 'border-[#2b2f36] bg-[#1a1c1f] text-[#9ca3af]' }} inline-flex size-9 items-center justify-center rounded-md border">
+                        <span class="{{ $activeCategory === $categoryKey ? 'border-[#3a3d42] bg-transparent text-white' : 'border-[#2b2f36] bg-transparent text-white' }} inline-flex size-9 items-center justify-center rounded-md border">
                             @if ($category['icon'] === 'chart')
                                 <svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20V10"/><path d="M10 20V4"/><path d="M16 20v-7"/><path d="M22 20v-4"/></svg>
                             @elseif ($category['icon'] === 'gear')
@@ -56,7 +56,7 @@
                                 <svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="8" r="2.5"/><circle cx="15" cy="8" r="2.5"/><path d="M3 20c0-3 2.5-5 6-5"/><path d="M21 20c0-3-2.5-5-6-5"/></svg>
                             @endif
                         </span>
-                        <span x-show="!sidebarCollapsed" class="{{ $activeCategory === $categoryKey ? 'text-[#f3f4f6]' : 'text-[#9ca3af]' }} text-[1.08rem] font-semibold leading-tight">
+                        <span x-show="!sidebarCollapsed" class="text-[1.08rem] font-semibold leading-tight text-white">
                             {{ $category['label'] }}
                         </span>
                     </button>
@@ -65,8 +65,8 @@
         </div>
     </aside>
 
-    <div class="min-h-screen transition-all duration-300" :class="sidebarCollapsed ? 'lg:ml-20' : 'lg:ml-72'">
-        <header class="sticky top-0 z-20 border-b border-[#2b2f36] bg-[#111214]/90 px-4 py-4 backdrop-blur-md sm:px-6">
+    <div class="min-h-screen bg-gradient-to-b from-[#0a0a0a] to-[#121214] transition-all duration-300" :class="sidebarCollapsed ? 'lg:ml-20' : 'lg:ml-72'">
+        <header class="sticky top-0 z-20 bg-gradient-to-b from-[#0f1012] to-[#121214]/95 px-4 py-4 backdrop-blur-md sm:px-6">
             <div class="grid items-center gap-3 md:grid-cols-[auto,1fr,auto]">
                 <button
                     type="button"
@@ -75,49 +75,58 @@
                 >
                     Menu
                 </button>
-                <div class="mx-auto w-full max-w-2xl">
-                    <label class="sr-only" for="global-search">Global Search</label>
-                    <input
-                        id="global-search"
-                        type="search"
-                        placeholder="Global Search"
-                        class="w-full rounded-lg border border-[#2b2f36] bg-[#1a1c1f]/80 px-4 py-2.5 text-sm text-[#f3f4f6] placeholder:text-[#9ca3af] focus:border-[#3b82f6]/70 focus:outline-none focus:ring-2 focus:ring-[#3b82f6]/25"
-                    >
-                </div>
-                @auth
-                    <div class="justify-self-end rounded-md border border-[#2b2f36] bg-[#1a1c1f]/85 px-3 py-2 text-xs font-semibold tracking-wide text-[#f3f4f6]">
-                        {{ auth()->user()->name }}
-                    </div>
-                @endauth
-            </div>
-        </header>
-
-        <main class="space-y-3 p-4 sm:p-6 lg:p-8">
-            <div class="flex items-center justify-between rounded-lg border border-[#2b2f36] bg-[#111214]/70 px-4 py-3 backdrop-blur-md">
                 <div class="space-y-1">
                     <p class="text-xs uppercase tracking-[0.16em] text-[#9ca3af]">{{ $categories[$activeCategory]['label'] }}</p>
                     <h2 class="text-3xl font-bold leading-none text-[#f3f4f6]">{{ $this->activeTabConfig['label'] }}</h2>
                 </div>
+                <div class="justify-self-end">
+                    <div class="flex items-center gap-3">
+                        <label class="sr-only" for="global-search">Global Search</label>
+                        <input
+                            id="global-search"
+                            type="search"
+                            placeholder="Global Search"
+                            class="w-64 rounded-lg border border-[#2b2f36] bg-[#1a1c1f]/80 px-4 py-2.5 text-sm text-[#f3f4f6] placeholder:text-[#9ca3af] focus:border-[#3b82f6]/70 focus:outline-none focus:ring-2 focus:ring-[#3b82f6]/25"
+                        >
+                        <span class="inline-flex h-8 shrink-0 momo-rule-v" aria-hidden="true"></span>
+                        @auth
+                            <div class="rounded-md border border-[#2b2f36] bg-[#1a1c1f]/85 px-3 py-2 text-xs font-semibold tracking-wide text-[#f3f4f6]">
+                                {{ auth()->user()->name }}
+                            </div>
+                        @endauth
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <span class="block w-full momo-rule-h" aria-hidden="true"></span>
+
+        <main class="space-y-3 p-4 sm:p-6 lg:p-8">
+            <div class="flex items-center justify-end pb-3">
                 <p class="text-sm text-[#9ca3af]">{{ count($this->activeTabs) }} modules</p>
             </div>
 
+            <span class="block w-full momo-rule-h" aria-hidden="true"></span>
+
             @if (count($this->activeTabs) > 1)
-                <div class="flex flex-wrap gap-2 border-b border-[#2b2f36] pb-3">
+                <div class="flex flex-wrap gap-2 pb-3">
                     @foreach ($this->activeTabs as $tab)
                         <button
                             type="button"
                             wire:click="selectTab('{{ $tab['slug'] }}')"
                             wire:key="tab-{{ $tab['slug'] }}"
-                            class="rounded-md border px-4 py-2 text-[13px] font-medium transition-all duration-150 {{ $activeTab === $tab['slug'] ? 'border-[#3b82f6]/45 bg-[#1c2333] text-[#f3f4f6] shadow-[0_0_12px_rgba(59,130,246,0.2)]' : 'border-[#2b2f36] bg-[#1a1c1f]/80 text-[#9ca3af] hover:border-[#3b82f6]/35 hover:text-[#f3f4f6]' }}"
+                            class="rounded-md border px-4 py-2 text-[13px] font-medium transition-all duration-150 {{ $this->activeTab === $tab['slug'] ? 'border-[#3b82f6]/45 bg-[#1c2333] text-[#f3f4f6] shadow-[0_0_12px_rgba(59,130,246,0.2)]' : 'border-[#2b2f36] bg-[#1a1c1f]/80 text-[#9ca3af] hover:border-[#3b82f6]/35 hover:text-[#f3f4f6]' }}"
                         >
                             {{ $tab['label'] }}
                         </button>
                     @endforeach
                 </div>
+
+                <span class="mt-3 block w-full momo-rule-h" aria-hidden="true"></span>
             @endif
 
             <div wire:loading.class="opacity-75" wire:target="selectTab" class="min-h-[60vh] transition-opacity duration-150">
-                @livewire($this->activeTabConfig['component'], [], key($this->activeTabConfig['component'].'-'.$activeTab))
+                @livewire($this->activeTabConfig['component'], [], key($this->activeTabConfig['component'].'-'.$this->activeTab))
             </div>
         </main>
     </div>

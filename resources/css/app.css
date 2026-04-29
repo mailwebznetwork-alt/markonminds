@@ -5,3 +5,73 @@
 [x-cloak] {
     display: none;
 }
+
+/* Etched / recessed separators (dark UI): 2-line groove via subtle highlight + shadow */
+
+.momo-rule-h {
+    height: 2px;
+    border-radius: 9999px;
+    background-image: linear-gradient(
+        to bottom,
+        rgb(255 255 255 / 0.08) 0px,
+        rgb(255 255 255 / 0.08) 1px,
+        rgb(0 0 0 / 0.75) 1px,
+        rgb(0 0 0 / 0.75) 2px
+    );
+}
+
+.momo-rule-v {
+    width: 2px;
+    border-radius: 9999px;
+    background-image: linear-gradient(
+        to right,
+        rgb(255 255 255 / 0.08) 0px,
+        rgb(255 255 255 / 0.08) 1px,
+        rgb(0 0 0 / 0.75) 1px,
+        rgb(0 0 0 / 0.75) 2px
+    );
+}
+
+.momo-edge-v {
+    position: relative;
+}
+
+.momo-edge-v::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 2px;
+    height: 100%;
+    border-radius: 9999px;
+    background-image: linear-gradient(
+        to right,
+        rgb(255 255 255 / 0.08) 0px,
+        rgb(255 255 255 / 0.08) 1px,
+        rgb(0 0 0 / 0.75) 1px,
+        rgb(0 0 0 / 0.75) 2px
+    );
+    pointer-events: none;
+}
+
+.momo-row-h:not(:last-child) {
+    position: relative;
+}
+
+.momo-row-h:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 2px;
+    border-radius: 9999px;
+    background-image: linear-gradient(
+        to bottom,
+        rgb(255 255 255 / 0.08) 0px,
+        rgb(255 255 255 / 0.08) 1px,
+        rgb(0 0 0 / 0.75) 1px,
+        rgb(0 0 0 / 0.75) 2px
+    );
+    pointer-events: none;
+}
