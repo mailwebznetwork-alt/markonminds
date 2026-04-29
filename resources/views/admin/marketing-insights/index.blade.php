@@ -18,7 +18,6 @@
                     name="business_goal"
                     rows="5"
                     class="w-full rounded-xl border border-[#D4AF37]/40 bg-[#121212] px-4 py-3 text-sm text-[#f8f4e7] placeholder:text-[#9d9275] focus:border-[#D4AF37] focus:outline-none"
-                    placeholder="Example: Increase qualified inbound leads by 30% in the next quarter."
                 >{{ old('business_goal') }}</textarea>
                 @error('business_goal')
                     <p class="text-sm text-rose-300">{{ $message }}</p>

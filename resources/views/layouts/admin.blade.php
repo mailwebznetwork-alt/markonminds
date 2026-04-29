@@ -15,17 +15,19 @@
         </style>
     </head>
     <body class="min-h-screen bg-[#121212] text-slate-100 antialiased">
-        <aside class="fixed inset-y-0 left-0 z-30 w-72 border-r border-[#D4AF37]/35 bg-gradient-to-b from-[#171717] via-[#121212] to-[#0f0f0f]">
-            <div class="flex h-20 items-center border-b border-[#D4AF37]/35 px-6">
+        <header class="fixed top-0 right-0 left-0 z-40 h-20 border-b border-[#D4AF37]/35 bg-[#121212]">
+            <div class="flex h-full items-center px-6">
                 <h1 class="text-2xl font-semibold tracking-wide text-[#f8f4e7]">MarkOnMinds</h1>
             </div>
+        </header>
 
+        <aside class="fixed top-20 bottom-0 left-0 z-30 w-72 border-r border-[#D4AF37]/35 bg-gradient-to-b from-[#171717] via-[#121212] to-[#0f0f0f]">
             <div class="h-[calc(100vh-80px)] overflow-y-auto custom-scrollbar">
                 <nav class="space-y-2 px-3 py-4"></nav>
             </div>
         </aside>
 
-        <div class="ml-72 min-h-screen">
+        <div class="ml-72 pt-20 min-h-screen">
             <main class="p-8">
                 @yield('content')
             </main>
