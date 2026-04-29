@@ -28,7 +28,7 @@
         </div>
 
         <div class="h-[calc(100vh-80px)] overflow-y-auto custom-scrollbar px-3 py-4">
-            <nav class="grid divide-y divide-black/45 text-base">
+            <nav class="grid divide-y divide-[#2b3340]/75 text-base">
                 @foreach ($categories as $categoryKey => $category)
                     <button
                         type="button"
