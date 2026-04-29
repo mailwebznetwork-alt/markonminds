@@ -28,7 +28,7 @@
         </div>
 
         <div class="h-[calc(100vh-80px)] overflow-y-auto custom-scrollbar px-3 py-4">
-            <nav class="grid divide-y divide-black/45 text-sm">
+            <nav class="grid divide-y divide-black/45 text-base">
                 @foreach ($categories as $categoryKey => $category)
                     <button
                         type="button"
@@ -37,7 +37,7 @@
                         class="flex items-center gap-3 px-3 py-3 transition-colors duration-150"
                         :class="sidebarCollapsed ? 'justify-center' : 'justify-start'"
                     >
-                        <span class="{{ $activeCategory === $categoryKey ? 'border-[#3a3d42] bg-[#2b2f36] text-[#f3f4f6]' : 'border-[#2b2f36] bg-[#1a1c1f] text-[#9ca3af]' }} inline-flex size-8 items-center justify-center rounded-md border">
+                        <span class="{{ $activeCategory === $categoryKey ? 'border-[#3a3d42] bg-[#2b2f36] text-[#f3f4f6]' : 'border-[#2b2f36] bg-[#1a1c1f] text-[#9ca3af]' }} inline-flex size-9 items-center justify-center rounded-md border">
                             @if ($category['icon'] === 'chart')
                                 <svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20V10"/><path d="M10 20V4"/><path d="M16 20v-7"/><path d="M22 20v-4"/></svg>
                             @elseif ($category['icon'] === 'gear')
@@ -56,7 +56,7 @@
                                 <svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="8" r="2.5"/><circle cx="15" cy="8" r="2.5"/><path d="M3 20c0-3 2.5-5 6-5"/><path d="M21 20c0-3-2.5-5-6-5"/></svg>
                             @endif
                         </span>
-                        <span x-show="!sidebarCollapsed" class="{{ $activeCategory === $categoryKey ? 'text-[#f3f4f6]' : 'text-[#9ca3af]' }}">
+                        <span x-show="!sidebarCollapsed" class="{{ $activeCategory === $categoryKey ? 'text-[#f3f4f6]' : 'text-[#9ca3af]' }} text-[1.08rem] font-semibold leading-tight">
                             {{ $category['label'] }}
                         </span>
                     </button>
