@@ -67,5 +67,5 @@
         </a>
     </div>
 
-    <div class="min-h-[46vh] rounded-xl border border-[#2b2f36] bg-[#111214]/50 p-4 shadow-[0_10px_15px_-3px_rgba(0,0,0,0.4)] backdrop-blur-md"></div>
+    <div class="min-h-[46vh] rounded-xl border border-[#2b2f36] bg-transparent p-4"></div>
 </div>

@@ -103,7 +103,7 @@
                 </div>
             </section>
 
-            <section class="rounded-xl border border-[#2b2f36] bg-[#111214]/60 p-3 backdrop-blur-md sm:p-4">
+            <section class="rounded-xl border border-[#2b2f36] bg-transparent p-3 sm:p-4">
                 @if (count($this->activeTabs) > 1)
                     <div class="flex flex-wrap gap-2 border-b border-[#2b2f36] pb-3">
                         @foreach ($this->activeTabs as $tab)
@@ -119,7 +119,7 @@
                     </div>
                 @endif
 
-                <div wire:loading.class="opacity-75" wire:target="selectTab" class="{{ count($this->activeTabs) > 1 ? 'mt-4' : '' }} min-h-[60vh] rounded-lg border border-[#2b2f36] bg-[#1a1c1f]/70 p-4 backdrop-blur-md transition-opacity duration-150">
+                <div wire:loading.class="opacity-75" wire:target="selectTab" class="{{ count($this->activeTabs) > 1 ? 'mt-4' : '' }} min-h-[60vh] rounded-lg border border-[#2b2f36] bg-[#0b0b0c] p-4 transition-opacity duration-150">
                     @livewire($this->activeTabConfig['component'], [], key($this->activeTabConfig['component'].'-'.$activeTab))
                 </div>
             </section>
