@@ -7,13 +7,13 @@
     ></div>
 
     <aside
-        class="fixed inset-y-0 left-0 z-40 border-r border-[#2b2f36] bg-[#111214]/95 backdrop-blur-md transition-all duration-300"
+        class="fixed inset-y-0 left-0 z-40 border-r border-[#2b2f36] bg-[#000000] transition-all duration-300"
         :class="[
             mobileSidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0',
             sidebarCollapsed ? 'w-20' : 'w-72'
         ]"
     >
-        <div class="flex h-20 items-center justify-between border-b border-[#2b2f36] px-4">
+        <div class="flex h-20 items-center justify-between border-b border-[#1a1c1f] px-4">
             <div x-show="!sidebarCollapsed" class="space-y-0.5">
                 <h1 class="text-lg font-semibold tracking-wide text-[#f3f4f6]">MarkOnMinds</h1>
                 <p class="text-[10px] uppercase tracking-[0.16em] text-[#9ca3af]">Console</p>
@@ -37,7 +37,7 @@
                         class="flex items-center gap-3 px-3 py-3 transition-colors duration-150"
                         :class="sidebarCollapsed ? 'justify-center' : 'justify-start'"
                     >
-                        <span class="{{ $activeCategory === $categoryKey ? 'border-[#3b82f6]/45 bg-[#182133] text-[#dbeafe]' : 'border-[#2b2f36] bg-[#1a1c1f] text-[#9ca3af]' }} inline-flex size-8 items-center justify-center rounded-md border">
+                        <span class="{{ $activeCategory === $categoryKey ? 'border-[#3a3d42] bg-[#2b2f36] text-[#f3f4f6]' : 'border-[#2b2f36] bg-[#1a1c1f] text-[#9ca3af]' }} inline-flex size-8 items-center justify-center rounded-md border">
                             @if ($category['icon'] === 'chart')
                                 <svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20V10"/><path d="M10 20V4"/><path d="M16 20v-7"/><path d="M22 20v-4"/></svg>
                             @elseif ($category['icon'] === 'gear')
