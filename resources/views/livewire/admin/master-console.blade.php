@@ -116,7 +116,7 @@
                 </div>
             @endif
 
-            <div wire:loading.class="opacity-75" wire:target="selectTab" class="min-h-[60vh] rounded-lg border border-[#2b2f36] bg-[#0b0b0c] p-4 transition-opacity duration-150">
+            <div wire:loading.class="opacity-75" wire:target="selectTab" class="min-h-[60vh] transition-opacity duration-150">
                 @livewire($this->activeTabConfig['component'], [], key($this->activeTabConfig['component'].'-'.$activeTab))
             </div>
         </main>
