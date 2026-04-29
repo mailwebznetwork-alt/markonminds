@@ -1,4 +1,4 @@
-<div x-data="{ sidebarCollapsed: false, mobileSidebarOpen: false }" class="min-h-screen">
+<div x-data="{ sidebarCollapsed: false, mobileSidebarOpen: false }" class="min-h-screen bg-[#0b1220]">
     <div
         x-show="mobileSidebarOpen"
         x-transition.opacity
@@ -7,17 +7,20 @@
     ></div>
 
     <aside
-        class="fixed inset-y-0 left-0 z-40 border-r border-[#d4af37]/25 bg-[#0d1324] transition-all duration-300"
+        class="fixed inset-y-0 left-0 z-40 border-r border-[#243247] bg-[#0f172a] transition-all duration-300"
         :class="[
             mobileSidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0',
             sidebarCollapsed ? 'w-20' : 'w-72'
         ]"
     >
-        <div class="flex h-20 items-center justify-between border-b border-[#d4af37]/25 px-4">
-            <h1 x-show="!sidebarCollapsed" class="text-lg font-semibold tracking-wide text-[#f8f1dc]">MarkOnMinds</h1>
+        <div class="flex h-20 items-center justify-between border-b border-[#243247] px-4">
+            <div x-show="!sidebarCollapsed" class="space-y-0.5">
+                <h1 class="text-lg font-semibold tracking-wide text-slate-100">MarkOnMinds</h1>
+                <p class="text-[10px] uppercase tracking-[0.16em] text-slate-400">Console</p>
+            </div>
             <button
                 type="button"
-                class="rounded-md border border-[#d4af37]/40 bg-[#141c30] px-2 py-1 text-xs font-semibold text-[#d4af37]"
+                class="rounded-md border border-[#2e3e57] bg-[#141d30] px-2 py-1 text-xs font-semibold text-slate-300"
                 @click="sidebarCollapsed = !sidebarCollapsed"
             >
                 <span x-text="sidebarCollapsed ? '>>' : '<<'"></span>
@@ -31,10 +34,10 @@
                         type="button"
                         wire:click="selectCategory('{{ $categoryKey }}')"
                         x-bind:title="sidebarCollapsed ? '{{ $category['label'] }}' : ''"
-                        class="flex items-center gap-3 rounded-lg border px-3 py-2 transition"
+                        class="flex items-center gap-3 rounded-lg border px-3 py-2 transition-colors duration-150"
                         :class="sidebarCollapsed ? 'justify-center' : 'justify-start'"
                     >
-                        <span class="{{ $activeCategory === $categoryKey ? 'border-[#d4af37]/60 bg-[#2a1e0f] text-[#f5e7c4]' : 'border-[#d4af37]/30 bg-[#111a2f] text-[#b99b61]' }} inline-flex size-8 items-center justify-center rounded-md border">
+                        <span class="{{ $activeCategory === $categoryKey ? 'border-[#3b82f6]/50 bg-[#14233f] text-[#dbeafe]' : 'border-[#2e3e57] bg-[#111a2f] text-slate-400' }} inline-flex size-8 items-center justify-center rounded-md border">
                             @if ($category['icon'] === 'chart')
                                 <svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20V10"/><path d="M10 20V4"/><path d="M16 20v-7"/><path d="M22 20v-4"/></svg>
                             @elseif ($category['icon'] === 'gear')
@@ -53,7 +56,7 @@
                                 <svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="8" r="2.5"/><circle cx="15" cy="8" r="2.5"/><path d="M3 20c0-3 2.5-5 6-5"/><path d="M21 20c0-3-2.5-5-6-5"/></svg>
                             @endif
                         </span>
-                        <span x-show="!sidebarCollapsed" class="{{ $activeCategory === $categoryKey ? 'text-[#f5e7c4]' : 'text-[#d7c7a1]' }}">
+                        <span x-show="!sidebarCollapsed" class="{{ $activeCategory === $categoryKey ? 'text-slate-100' : 'text-slate-300' }}">
                             {{ $category['label'] }}
                         </span>
                     </button>
@@ -63,11 +66,11 @@
     </aside>
 
     <div class="min-h-screen transition-all duration-300" :class="sidebarCollapsed ? 'lg:ml-20' : 'lg:ml-72'">
-        <header class="sticky top-0 z-20 border-b border-[#d4af37]/20 bg-[#0a0f1c]/95 px-4 py-4 backdrop-blur sm:px-6">
+        <header class="sticky top-0 z-20 border-b border-[#243247] bg-[#0b1220]/95 px-4 py-4 backdrop-blur sm:px-6">
             <div class="grid items-center gap-3 md:grid-cols-[auto,1fr,auto]">
                 <button
                     type="button"
-                    class="inline-flex items-center justify-center rounded-md border border-[#d4af37]/35 bg-[#121a2d] px-3 py-2 text-xs font-semibold text-[#d4af37] lg:hidden"
+                    class="inline-flex items-center justify-center rounded-md border border-[#2e3e57] bg-[#121a2d] px-3 py-2 text-xs font-semibold text-slate-300 lg:hidden"
                     @click="mobileSidebarOpen = true"
                 >
                     Menu
@@ -78,27 +81,37 @@
                         id="global-search"
                         type="search"
                         placeholder="Global Search"
-                        class="w-full rounded-lg border border-[#d4af37]/35 bg-[#11192a] px-4 py-2.5 text-sm text-[#f5e7c4] placeholder:text-[#8a7448] focus:border-[#d4af37]/70 focus:outline-none focus:ring-2 focus:ring-[#d4af37]/30"
+                        class="w-full rounded-lg border border-[#2e3e57] bg-[#111a2e] px-4 py-2.5 text-sm text-slate-100 placeholder:text-slate-500 focus:border-[#3b82f6]/70 focus:outline-none focus:ring-2 focus:ring-[#3b82f6]/25"
                     >
                 </div>
                 @auth
-                    <div class="justify-self-end rounded-md border border-[#d4af37]/35 bg-[#141b2e] px-3 py-2 text-xs font-semibold tracking-wide text-[#e8d9b2]">
+                    <div class="justify-self-end rounded-md border border-[#2e3e57] bg-[#141d31] px-3 py-2 text-xs font-semibold tracking-wide text-slate-200">
                         {{ auth()->user()->name }}
                     </div>
                 @endauth
             </div>
         </header>
 
-        <main class="p-4 sm:p-6 lg:p-8">
-            <section class="rounded-xl border border-[#d4af37]/30 bg-[#0f1728] p-3 sm:p-4">
+        <main class="space-y-4 p-4 sm:p-6 lg:p-8">
+            <section class="rounded-xl border border-[#243247] bg-[#10192c] px-4 py-3">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-xs uppercase tracking-[0.16em] text-slate-400">{{ $categories[$activeCategory]['label'] }}</p>
+                        <h2 class="text-lg font-semibold text-slate-100">{{ $this->activeTabConfig['label'] }}</h2>
+                    </div>
+                    <p class="text-xs text-slate-400">{{ count($this->activeTabs) }} modules</p>
+                </div>
+            </section>
+
+            <section class="rounded-xl border border-[#243247] bg-[#0f1728] p-3 sm:p-4">
                 @if (count($this->activeTabs) > 1)
-                    <div class="flex flex-wrap gap-2 border-b border-[#d4af37]/20 pb-3">
+                    <div class="flex flex-wrap gap-2 border-b border-[#243247] pb-3">
                         @foreach ($this->activeTabs as $tab)
                             <button
                                 type="button"
                                 wire:click="selectTab('{{ $tab['slug'] }}')"
                                 wire:key="tab-{{ $tab['slug'] }}"
-                                class="rounded-md border px-4 py-2 text-[13px] font-medium transition-all duration-150 {{ $activeTab === $tab['slug'] ? 'border-[#d4af37] bg-[#3b2a11] text-[#fff3d8] shadow-[0_0_0_1px_rgba(212,175,55,0.4)]' : 'border-[#d4af37]/25 bg-[#121a2d] text-[#d7c7a1] hover:border-[#d4af37]/55 hover:text-[#f5e7c4]' }}"
+                                class="rounded-md border px-4 py-2 text-[13px] font-medium transition-all duration-150 {{ $activeTab === $tab['slug'] ? 'border-[#3b82f6]/50 bg-[#13213e] text-[#e2edff]' : 'border-[#2e3e57] bg-[#121a2d] text-slate-300 hover:border-[#3b82f6]/45 hover:text-slate-100' }}"
                             >
                                 {{ $tab['label'] }}
                             </button>
@@ -106,8 +119,7 @@
                     </div>
                 @endif
 
-                <div wire:loading.class="opacity-75" wire:target="selectTab" class="{{ count($this->activeTabs) > 1 ? 'mt-4' : '' }} min-h-[60vh] rounded-lg border border-[#d4af37]/20 bg-[#0a1020] p-4 transition-opacity duration-150">
-                    <h2 class="mb-3 text-lg font-semibold text-[#f5e7c4]">{{ $this->activeTabConfig['label'] }}</h2>
+                <div wire:loading.class="opacity-75" wire:target="selectTab" class="{{ count($this->activeTabs) > 1 ? 'mt-4' : '' }} min-h-[60vh] rounded-lg border border-[#243247] bg-[#0d1527] p-4 transition-opacity duration-150">
                     @livewire($this->activeTabConfig['component'], [], key($this->activeTabConfig['component'].'-'.$activeTab))
                 </div>
             </section>
