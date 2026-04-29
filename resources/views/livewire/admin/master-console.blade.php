@@ -1,4 +1,4 @@
-<div x-data="{ sidebarCollapsed: false, mobileSidebarOpen: false }" class="min-h-screen bg-gradient-to-b from-[#0a0a0a] to-[#121214]">
+<div x-data="{ sidebarCollapsed: false, mobileSidebarOpen: false }" class="flex min-h-0 flex-1 flex-col bg-gradient-to-b from-[#0a0a0a] to-[#121214]">
     <div
         x-show="mobileSidebarOpen"
         x-transition.opacity
@@ -7,11 +7,8 @@
     ></div>
 
     <aside
-        class="fixed inset-y-0 left-0 z-40 momo-edge-v bg-gradient-to-b from-[#0a0a0a] to-[#121214] transition-all duration-300"
-        :class="[
-            mobileSidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0',
-            sidebarCollapsed ? 'w-20' : 'w-72'
-        ]"
+        class="fixed inset-y-0 left-0 z-40 w-72 momo-edge-v bg-gradient-to-b from-[#0a0a0a] to-[#121214] transition-all duration-300"
+        x-bind:class="sidebarCollapsed ? 'w-20' : 'w-72'"
     >
         <div class="flex h-20 items-center justify-between bg-[#1e63ff] px-4">
             <div x-show="!sidebarCollapsed" class="space-y-0.5">
@@ -65,8 +62,12 @@
         </div>
     </aside>
 
-    <div class="min-h-screen bg-gradient-to-b from-[#0a0a0a] to-[#121214] transition-all duration-300" :class="sidebarCollapsed ? 'lg:ml-20' : 'lg:ml-72'">
-        <header class="sticky top-0 z-20 bg-gradient-to-b from-[#0f1012] to-[#121214]/95 px-4 py-4 backdrop-blur-md sm:px-6">
+    <div
+        class="flex min-h-0 flex-1 flex-col bg-gradient-to-b from-[#0a0a0a] to-[#121214] transition-all duration-300"
+        style="padding-left: 18rem;"
+        x-bind:style="sidebarCollapsed ? 'padding-left: 5rem;' : 'padding-left: 18rem;'"
+    >
+        <header class="sticky top-0 z-20 shrink-0 bg-gradient-to-b from-[#0f1012] to-[#121214]/95 px-4 py-4 backdrop-blur-md sm:px-6">
             <div class="grid items-center gap-3 md:grid-cols-[auto,1fr,auto]">
                 <button
                     type="button"
@@ -99,14 +100,14 @@
             </div>
         </header>
 
-        <span class="block w-full momo-rule-h" aria-hidden="true"></span>
+        <span class="block w-full shrink-0 momo-rule-h" aria-hidden="true"></span>
 
-        <main class="space-y-3 p-4 sm:p-6 lg:p-8">
+        <main class="min-h-0 flex-1 space-y-3 overflow-y-auto p-4 sm:p-6 lg:p-8">
             <div class="flex items-center justify-end pb-3">
                 <p class="text-sm text-[#9ca3af]">{{ count($this->activeTabs) }} modules</p>
             </div>
 
-            <span class="block w-full momo-rule-h" aria-hidden="true"></span>
+            <span class="block w-full shrink-0 momo-rule-h" aria-hidden="true"></span>
 
             @if (count($this->activeTabs) > 1)
                 <div class="flex flex-wrap gap-2 pb-3">
@@ -122,10 +123,10 @@
                     @endforeach
                 </div>
 
-                <span class="mt-3 block w-full momo-rule-h" aria-hidden="true"></span>
+                <span class="mt-3 block w-full shrink-0 momo-rule-h" aria-hidden="true"></span>
             @endif
 
-            <div wire:loading.class="opacity-75" wire:target="selectTab" class="min-h-[60vh] transition-opacity duration-150">
+            <div wire:loading.class="opacity-75" wire:target="selectTab" class="min-h-0 flex-1 transition-opacity duration-150">
                 @livewire($this->activeTabConfig['component'], [], key($this->activeTabConfig['component'].'-'.$this->activeTab))
             </div>
         </main>

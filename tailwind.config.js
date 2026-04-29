@@ -11,6 +11,16 @@ export default {
         './resources/views/**/*.blade.php',
     ],
 
+    safelist: [
+        'ml-20',
+        'ml-72',
+        'w-20',
+        'w-72',
+        'lg:translate-x-0',
+        '-translate-x-full',
+        'translate-x-0',
+    ],
+
     theme: {
         extend: {
             fontFamily: {

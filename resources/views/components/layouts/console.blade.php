@@ -13,10 +13,20 @@
         <style>
             .custom-scrollbar::-webkit-scrollbar { width: 4px; }
             .custom-scrollbar::-webkit-scrollbar-thumb { background: #3b2d11; border-radius: 10px; }
+
+            /* Livewire full-page root — stretch through flex chain so the workspace fills the viewport */
+            .console-slot > [wire\:id] {
+                display: flex;
+                flex: 1 1 0%;
+                flex-direction: column;
+                min-height: 0;
+            }
         </style>
     </head>
-    <body class="min-h-screen bg-[#0a0f1c] text-[#f5e7c4] antialiased" style="font-family: 'Noto Sans', sans-serif;">
-        {{ $slot }}
+    <body class="flex min-h-screen min-h-dvh flex-col bg-[#0a0f1c] text-[#f5e7c4] antialiased" style="font-family: 'Noto Sans', sans-serif;">
+        <div class="console-slot flex min-h-0 flex-1 flex-col">
+            {{ $slot }}
+        </div>
 
         @livewireScripts
     </body>
