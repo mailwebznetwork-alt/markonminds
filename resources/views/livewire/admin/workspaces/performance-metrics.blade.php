@@ -3,8 +3,8 @@
         <a
             href="{{ route('admin.operations.bookings') }}"
             wire:navigate
-            class="h-48 rounded-xl border border-[#334155] bg-[rgba(30,41,59,0.4)] p-6 shadow-[0_20px_25px_-5px_rgba(0,0,0,0.5)] backdrop-blur-md transition hover:-translate-y-0.5"
-            style="box-shadow: 0 0 0 1px rgba(59,130,246,0.35), 0 0 22px rgba(59,130,246,0.4), 0 20px 25px -5px rgba(0,0,0,0.5);"
+            class="h-48 rounded-xl border border-[#1e293b] bg-[#0f172a]/40 p-4 shadow-[0_10px_15px_-3px_rgba(0,0,0,0.4)] backdrop-blur-md transition hover:-translate-y-0.5"
+            style="box-shadow: 0 0 0 1px rgba(59,130,246,0.2), 0 0 14px rgba(59,130,246,0.2), 0 10px 15px -3px rgba(0,0,0,0.4);"
         >
             <div class="flex h-full flex-col justify-between">
                 <div class="flex items-center justify-between">
@@ -20,7 +20,7 @@
         <a
             href="{{ route('admin.operations.jobs') }}"
             wire:navigate
-            class="h-48 rounded-xl border border-[#334155] bg-[rgba(30,41,59,0.4)] p-6 shadow-[0_20px_25px_-5px_rgba(0,0,0,0.5)] backdrop-blur-md transition hover:-translate-y-0.5"
+            class="h-48 rounded-xl border border-[#1e293b] bg-[#0f172a]/40 p-4 shadow-[0_10px_15px_-3px_rgba(0,0,0,0.4)] backdrop-blur-md transition hover:-translate-y-0.5"
         >
             <div class="flex h-full flex-col justify-between">
                 <div class="flex items-center justify-between">
@@ -36,7 +36,7 @@
         <a
             href="{{ route('admin.operations.services') }}"
             wire:navigate
-            class="h-48 rounded-xl border border-[#334155] bg-[rgba(30,41,59,0.4)] p-6 shadow-[0_20px_25px_-5px_rgba(0,0,0,0.5)] backdrop-blur-md transition hover:-translate-y-0.5"
+            class="h-48 rounded-xl border border-[#1e293b] bg-[#0f172a]/40 p-4 shadow-[0_10px_15px_-3px_rgba(0,0,0,0.4)] backdrop-blur-md transition hover:-translate-y-0.5"
         >
             <div class="flex h-full flex-col justify-between">
                 <div class="flex items-center justify-between">
@@ -52,7 +52,7 @@
         <a
             href="{{ route('admin.operations.locations') }}"
             wire:navigate
-            class="h-48 rounded-xl border border-[#334155] bg-[rgba(30,41,59,0.4)] p-6 shadow-[0_20px_25px_-5px_rgba(0,0,0,0.5)] backdrop-blur-md transition hover:-translate-y-0.5"
+            class="h-48 rounded-xl border border-[#1e293b] bg-[#0f172a]/40 p-4 shadow-[0_10px_15px_-3px_rgba(0,0,0,0.4)] backdrop-blur-md transition hover:-translate-y-0.5"
         >
             <div class="flex h-full flex-col justify-between">
                 <div class="flex items-center justify-between">
@@ -67,7 +67,5 @@
         </a>
     </div>
 
-    <div class="min-h-[46vh] rounded-xl border border-[#334155] bg-[rgba(30,41,59,0.4)] p-6 shadow-[0_20px_25px_-5px_rgba(0,0,0,0.5)] backdrop-blur-md">
-        <p class="text-xs font-bold uppercase tracking-[0.1em] text-slate-200">Dashboard Workspace</p>
-    </div>
+    <div class="min-h-[46vh] rounded-xl border border-[#1e293b] bg-[#0f172a]/40 p-4 shadow-[0_10px_15px_-3px_rgba(0,0,0,0.4)] backdrop-blur-md"></div>
 </div>
