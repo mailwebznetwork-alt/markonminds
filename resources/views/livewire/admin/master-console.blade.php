@@ -28,13 +28,13 @@
         </div>
 
         <div class="h-[calc(100vh-80px)] overflow-y-auto custom-scrollbar px-3 py-4">
-            <nav class="grid gap-2 text-sm">
+            <nav class="grid divide-y divide-black/45 text-sm">
                 @foreach ($categories as $categoryKey => $category)
                     <button
                         type="button"
                         wire:click="selectCategory('{{ $categoryKey }}')"
                         x-bind:title="sidebarCollapsed ? '{{ $category['label'] }}' : ''"
-                        class="flex items-center gap-3 rounded-lg border px-3 py-2 transition-colors duration-150"
+                        class="flex items-center gap-3 px-3 py-3 transition-colors duration-150"
                         :class="sidebarCollapsed ? 'justify-center' : 'justify-start'"
                     >
                         <span class="{{ $activeCategory === $categoryKey ? 'border-[#3b82f6]/45 bg-[#182133] text-[#dbeafe]' : 'border-[#2b2f36] bg-[#1a1c1f] text-[#9ca3af]' }} inline-flex size-8 items-center justify-center rounded-md border">
