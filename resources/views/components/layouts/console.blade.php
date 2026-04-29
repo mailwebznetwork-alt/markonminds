@@ -14,11 +14,11 @@
             .custom-scrollbar::-webkit-scrollbar { width: 4px; }
             .custom-scrollbar::-webkit-scrollbar-thumb { background: #3b2d11; border-radius: 10px; }
 
-            /* Livewire full-page root — stretch through flex chain so the workspace fills the viewport */
+            /* Livewire full-page root: grow in .console-slot but stay block layout. Do NOT use flex
+               column here — fixed sidebar/overlay are still flex items and can reserve ~100vh, pushing
+               the main column down. */
             .console-slot > [wire\:id] {
-                display: flex;
                 flex: 1 1 0%;
-                flex-direction: column;
                 min-height: 0;
             }
         </style>

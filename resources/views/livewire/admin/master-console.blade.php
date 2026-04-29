@@ -1,4 +1,4 @@
-<div x-data="{ sidebarCollapsed: false, mobileSidebarOpen: false }" class="flex min-h-0 flex-1 flex-col bg-gradient-to-b from-[#0a0a0a] to-[#121214]">
+<div x-data="{ sidebarCollapsed: false, mobileSidebarOpen: false }" class="relative min-h-dvh flex-1 bg-gradient-to-b from-[#0a0a0a] to-[#121214]">
     <div
         x-show="mobileSidebarOpen"
         x-transition.opacity
@@ -63,7 +63,7 @@
     </aside>
 
     <div
-        class="flex min-h-0 flex-1 flex-col bg-gradient-to-b from-[#0a0a0a] to-[#121214] transition-all duration-300"
+        class="flex min-h-dvh min-h-0 w-full flex-1 flex-col bg-gradient-to-b from-[#0a0a0a] to-[#121214] transition-all duration-300"
         style="padding-left: 18rem;"
         x-bind:style="sidebarCollapsed ? 'padding-left: 5rem;' : 'padding-left: 18rem;'"
     >
