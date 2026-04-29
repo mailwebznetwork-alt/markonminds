@@ -91,6 +91,22 @@ class MasterConsole extends Component
 
     public function mount(): void
     {
+        $operationRouteMap = [
+            'admin.operations.bookings' => 'bookings',
+            'admin.operations.jobs' => 'job-portal',
+            'admin.operations.services' => 'services',
+            'admin.operations.locations' => 'locations',
+        ];
+
+        $currentRouteName = request()->route()?->getName();
+
+        if ($currentRouteName !== null && isset($operationRouteMap[$currentRouteName])) {
+            $this->activeCategory = 'operations';
+            $this->activeTab = $operationRouteMap[$currentRouteName];
+
+            return;
+        }
+
         $firstTab = $this->categories[$this->activeCategory]['tabs'][0]['slug'];
         $this->activeTab = $firstTab;
     }
