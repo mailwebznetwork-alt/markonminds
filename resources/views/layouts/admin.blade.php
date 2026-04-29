@@ -3,7 +3,8 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>@yield('title', 'MarkOnMinds')</title>
+        <meta name="csrf-token" content="{{ csrf_token() }}">
+        <title>@yield('title', 'MarkOnMinds Console')</title>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -11,49 +12,54 @@
         <style>
             .custom-scrollbar::-webkit-scrollbar { width: 4px; }
             .custom-scrollbar::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 10px; }
-            body { font-family: 'Noto Sans', sans-serif; }
         </style>
     </head>
-    <body class="min-h-screen bg-[#121212] text-slate-100 antialiased">
-        <header class="fixed top-0 right-0 left-0 z-40 h-20 border-b border-[#D4AF37]/35 bg-[#121212]">
-            <div class="flex h-full items-center justify-between px-6">
-                <h1 class="text-2xl font-semibold tracking-wide text-[#f8f4e7]">MarkOnMinds</h1>
-                @auth
-                    <span class="text-sm font-medium text-[#D4AF37]">{{ auth()->user()->name }}</span>
-                @endauth
+    <body class="min-h-screen bg-[#050b1a] text-slate-100 antialiased" style="font-family: 'Noto Sans', sans-serif;">
+        <aside class="fixed inset-y-0 left-0 z-40 w-72 border-r border-[#1d2a4f] bg-[#050c1f]">
+            <div class="flex h-[80px] items-center justify-between border-b border-[#1d2a4f] bg-[#2e63d2] px-4">
+                <div>
+                    <h1 class="text-xl font-semibold text-white">MarkOnMinds</h1>
+                    <p class="text-[10px] uppercase tracking-[0.2em] text-blue-100">Console</p>
+                </div>
+                <button type="button" class="rounded-md border border-blue-200/30 bg-blue-500/30 px-2 py-1 text-xs text-blue-100">&laquo;</button>
             </div>
-        </header>
 
-        <aside class="fixed top-20 bottom-0 left-0 z-30 w-72 border-r border-[#D4AF37]/35 bg-gradient-to-b from-[#171717] via-[#121212] to-[#0f0f0f]">
-            <div class="h-[calc(100vh-80px)] overflow-y-auto custom-scrollbar">
-                <nav class="space-y-2 px-3 py-4">
-                    <a
-                        href="{{ route('admin.dashboard') }}"
-                        class="block rounded-xl border border-[#D4AF37]/35 bg-[#181818] px-4 py-3 text-sm font-medium text-[#f8f4e7] transition hover:border-[#D4AF37]/60"
-                    >
-                        Dashboard
-                    </a>
-                    <a
-                        href="{{ route('profile.show') }}"
-                        class="block rounded-xl border border-[#D4AF37]/25 bg-[#151515] px-4 py-3 text-sm font-medium text-[#d9d0b2] transition hover:border-[#D4AF37]/60"
-                    >
-                        Profile
-                    </a>
-                    <form method="POST" action="{{ route('logout') }}">
-                        @csrf
-                        <button
-                            type="submit"
-                            class="w-full rounded-xl border border-[#D4AF37]/25 bg-[#151515] px-4 py-3 text-left text-sm font-medium text-[#d9d0b2] transition hover:border-[#D4AF37]/60"
-                        >
-                            Logout
-                        </button>
-                    </form>
+            <div class="h-[calc(100vh-80px)] overflow-y-auto custom-scrollbar px-3 py-4 text-sm">
+                <p class="px-2 text-[10px] uppercase tracking-[0.18em] text-slate-500">Core Pillars</p>
+                <nav class="mt-2 space-y-1">
+                    <a href="{{ route('admin.dashboard') }}" class="block rounded-lg px-3 py-2 {{ request()->routeIs('admin.dashboard') ? 'bg-[#2e63d2] text-white' : 'text-slate-300 hover:bg-[#0f1a35]' }}">Dashboard</a>
+                    <a href="#" class="block rounded-lg bg-[#2e63d2] px-3 py-2 text-white">Site Architect</a>
+                </nav>
+
+                <p class="mt-5 px-2 text-[10px] uppercase tracking-[0.18em] text-slate-500">Filament</p>
+                <nav class="mt-2 space-y-1 text-slate-300">
+                    <a href="#" class="block rounded-lg px-3 py-2 hover:bg-[#0f1a35]">Pages</a>
+                    <a href="#" class="block rounded-lg px-3 py-2 hover:bg-[#0f1a35]">Blocks</a>
+                </nav>
+
+                <p class="mt-5 px-2 text-[10px] uppercase tracking-[0.18em] text-slate-500">Operations</p>
+                <nav class="mt-2 space-y-1 text-slate-300">
+                    <a href="#" class="block rounded-lg px-3 py-2 hover:bg-[#0f1a35]">Bookings</a>
+                    <a href="#" class="block rounded-lg px-3 py-2 hover:bg-[#0f1a35]">Job Portals</a>
+                    <a href="#" class="block rounded-lg px-3 py-2 hover:bg-[#0f1a35]">Growth Center</a>
                 </nav>
             </div>
         </aside>
 
-        <div class="ml-72 pt-20 min-h-screen">
-            <main class="p-8">
+        <div class="ml-72 min-h-screen">
+            <header class="sticky top-0 z-30 flex h-20 items-center justify-between border-b border-[#1d2a4f] bg-[#040913]/95 px-6 backdrop-blur">
+                <div class="w-full max-w-xl">
+                    <label class="sr-only" for="command-search">Search command center</label>
+                    <input id="command-search" type="text" placeholder="Search command center..." class="w-full rounded-md border border-[#1d2a4f] bg-[#060f26] px-4 py-2 text-sm text-slate-200 placeholder:text-slate-500 focus:border-[#2e63d2] focus:outline-none focus:ring-1 focus:ring-[#2e63d2]">
+                </div>
+                @auth
+                    <div class="ml-6 rounded-md border border-[#2e63d2]/50 bg-[#091533] px-3 py-2 text-xs font-semibold tracking-wide text-blue-200">
+                        {{ auth()->user()->name }}
+                    </div>
+                @endauth
+            </header>
+
+            <main class="p-6">
                 @yield('content')
             </main>
         </div>
