@@ -25,9 +25,7 @@ use App\Livewire\Admin\Workspaces\ThirdPartySetup;
 use App\Livewire\Admin\Workspaces\Webhooks;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return redirect('/login');
-});
+Route::view('/', 'welcome')->name('home');
 
 Route::middleware([
     'auth:sanctum',

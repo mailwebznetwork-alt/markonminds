@@ -1,7 +1,7 @@
 <?php
 
-it('redirects guests from root to login', function () {
+it('renders the independent root page', function () {
     $response = $this->get('/');
 
-    $response->assertRedirect('/login');
+    $response->assertOk();
 });
