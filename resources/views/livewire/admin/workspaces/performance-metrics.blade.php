@@ -1,4 +1,4 @@
-<div class="space-y-8 rounded-xl bg-[#0b0b0c] p-8">
+<div class="space-y-8">
     <div class="grid gap-8 sm:grid-cols-2 xl:grid-cols-4">
         <a
             href="{{ route('admin.operations.bookings') }}"
@@ -67,5 +67,5 @@
         </a>
     </div>
 
-    <div class="min-h-[46vh] rounded-xl border border-[#2b2f36] bg-transparent p-4"></div>
+    <div class="min-h-[46vh]"></div>
 </div>
