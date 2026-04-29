@@ -7,7 +7,7 @@
     ></div>
 
     <aside
-        class="fixed inset-y-0 left-0 z-40 border-r border-[#2b2f36] bg-[#000000] transition-all duration-300"
+        class="fixed inset-y-0 left-0 z-40 border-r border-[#2b2f36] bg-[#0b0b0c] transition-all duration-300"
         :class="[
             mobileSidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0',
             sidebarCollapsed ? 'w-20' : 'w-72'
